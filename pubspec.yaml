@@ -1,8 +1,6 @@
 name: ska_connect_dart
 description: Utility library for Connect protocol
 
-publish_to: 'none'
-
 version: 1.0.0+1
 
 environment:
