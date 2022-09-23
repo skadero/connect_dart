@@ -1,7 +1,9 @@
 name: ska_connect_dart
-description: Utility library for Connect protocol
+description: Support library for Connect protocol
+issue_tracker: https://github.com/skadero/connect_dart/issues
+repository: https://github.com/skadero/connect_dart
 
-version: 1.0.0+1
+version: "1.0.0"
 
 environment:
   sdk: ">=2.17.6 <3.0.0"
