@@ -1,4 +1,4 @@
-name: ska_connect_dart
+name: ska_connect
 description: Support library for Connect protocol
 issue_tracker: https://github.com/skadero/connect_dart/issues
 repository: https://github.com/skadero/connect_dart
