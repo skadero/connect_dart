@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    runs-on: [self-hosted, linux, x64]
+    runs-on: [self-hosted, Linux, x64]
     steps:
       - uses: actions/checkout@v2
       - uses: dart-lang/setup-dart@v1.3
