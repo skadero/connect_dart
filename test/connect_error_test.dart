@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 import 'dart:convert';
-import '../lib/core.dart';
+import '../lib/ska_connect.dart';
 
 var errorString = '''
 {

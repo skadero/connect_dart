@@ -1,6 +1,6 @@
 # ska_connect
 
-Dart support package for the [Connect](https://connect.build) protocol. This is not intended for direct use, but for use with generated code. It currently supports unary requests and the http client can be customized by implementing a common interface.
+Dart support package for the [Connect](https://connect.build) protocol. This is not intended for direct use, but for use with generated code. It currently supports unary requests and the protocol client can be customized by implementing a common interface.
 
 This package is published as `ska_connect`, because `connect` is too generic.
 
@@ -23,7 +23,7 @@ Required packages:
 
 ```dart
 import 'package:http/http.dart' as http;
-import 'package:ska_connect/core.dart';
+import 'package:ska_connect/ska_connect.dart';
 import './rpc/greet.pb.dart' as greet;
 ```
 

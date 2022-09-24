@@ -1,7 +1,7 @@
 import 'package:test/test.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
-import '../lib/core.dart';
+import '../lib/ska_connect.dart';
 import './rpc/greet.pb.dart' as greet;
 
 final mockClient = MockClient((request) async {
