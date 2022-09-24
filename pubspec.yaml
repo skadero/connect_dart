@@ -1,5 +1,5 @@
 name: ska_connect
-description: Support library for Connect protocol
+description: Support library for making request with the Connect (connect.build) protocol. Intended for use with generated code.
 issue_tracker: https://github.com/skadero/connect_dart/issues
 repository: https://github.com/skadero/connect_dart
 

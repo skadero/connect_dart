@@ -1,4 +1,4 @@
-/// Core support library
+/// Connect support library
 ///
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -36,21 +36,22 @@ typedef ResponseDecoder<S> = S Function(List<int>);
 
 /// The abstract base class for any Connect client.
 abstract class ConnectClient {
-  /// PerformRequest will return a [ConnectResponse] with parameterized type or an error
-  Future<ConnectResponse<T>> PerformRequest<RT extends GeneratedMessage, T>(
+  /// performRequest will return a [ConnectResponse] with parameterized type or an error
+  Future<ConnectResponse<T>> performRequest<RT extends GeneratedMessage, T>(
       String path, RT request, ResponseDecoder<T> decoder);
 }
 
 /// Implementation of [ConnectClient] that uses a nominal http client
 class HttpConnectClient implements ConnectClient {
   final String hostname;
-  final http.BaseClient httpClient;
+  final http.Client httpClient;
 
   /// Construct an HTTP based ConnectClient
   HttpConnectClient(this.hostname, this.httpClient) {}
 
-  /// Builds a request from the given path, and performs the request
-  Future<ConnectResponse<T>> PerformRequest<RT extends GeneratedMessage, T>(
+  /// Uses encodes request with protobuf, builds and performs an http request, and uses response
+  /// decoder to parse body. Will parse error if response code is not 200.
+  Future<ConnectResponse<T>> performRequest<RT extends GeneratedMessage, T>(
       String path, RT request, ResponseDecoder<T> decoder) async {
     final url = '$hostname$path';
     final uri = Uri.parse(url);

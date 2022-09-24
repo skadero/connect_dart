@@ -38,7 +38,7 @@ void main() {
   test('perform request', () async {
     final client = HttpConnectClient('http://localhost', mockClient);
 
-    final response = await client.PerformRequest('/greet.v1.GreetService/Greet',
+    final response = await client.performRequest('/greet.v1.GreetService/Greet',
         request, (b) => greet.GreetResponse.fromBuffer(b));
 
     expect(response.isError, equals(false));
@@ -49,7 +49,7 @@ void main() {
   test('perform with error', () async {
     final client = HttpConnectClient('http://localhost', mockClientWithError);
 
-    final response = await client.PerformRequest('/greet.v1.GreetService/Greet',
+    final response = await client.performRequest('/greet.v1.GreetService/Greet',
         request, (b) => greet.GreetResponse.fromBuffer(b));
 
     expect(response.isError, equals(true));

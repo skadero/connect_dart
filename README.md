@@ -1,4 +1,6 @@
-# ska_connect
+[![pub package](https://img.shields.io/pub/v/ska_connect.svg)](https://pub.dev/packages/ska_connect)
+[![package publisher](https://img.shields.io/pub/publisher/ska_connect.svg)](https://pub.dev/packages/ska_connect/publisher)
+[![Unit tests](https://github.com/skadero/connect_dart/actions/workflows/tests.yaml/badge.svg)](https://github.com/skadero/connect_dart/actions/workflows/tests.yaml)
 
 Dart support package for the [Connect](https://connect.build) protocol. This is not intended for direct use, but for use with generated code. It currently supports unary requests and the protocol client can be customized by implementing a common interface.
 
@@ -28,13 +30,14 @@ import './rpc/greet.pb.dart' as greet;
 ```
 
 ```dart
-// client can be used for multiple calls
 final client = HttpConnectClient('http://localhost', http.Client());
 
 // response will contain a response or an error
-final resp = await client.PerformRequest('/greet.v1.GreetService/Greet', request,
-  // decode function to generate the response type from a buffer
-  (b) => greet.GreetResponse.fromBuffer(b));
+final resp = await client.performRequest(
+    '/greet.v1.GreetService/Greet',
+    greet.GreetRequest(name: 'Chuck'),
+    // decode function to generate the response type from a buffer
+    (b) => greet.GreetResponse.fromBuffer(b));
 
 if (resp.isError) {
   // The response was an error, response.error will not be null
@@ -44,7 +47,6 @@ if (resp.isError) {
   print(resp.response!.greeting);
 }
 ```
-
 
 ## Running tests
 
