@@ -4,7 +4,7 @@
 [![license](https://img.shields.io/badge/license-MIT-purple.svg)](https://opensource.org/licenses/MIT)
 
 
-Dart support package for the [Connect](https://connect.build) protocol. This is not intended for direct use, but for use with generated code. It currently supports unary requests and the protocol client can be customized by implementing a common interface.
+Dart support package for the [Connect](https://connect.build) protocol. This is not intended for direct use, but for use with generated code. It currently supports unary requests and the protocol client can be customized by implementing a common interface. This package is used by the [protoc-gen-connect-dart](https://github.com/skadero/protoc-gen-connect-dart) protoc plugin for making Connect requests.
 
 This package is published as `ska_connect`, because `connect` is too generic.
 
