@@ -49,8 +49,8 @@ class HttpConnectClient implements ConnectClient {
   /// Construct an HTTP based ConnectClient
   HttpConnectClient(this.hostname, this.httpClient) {}
 
-  /// Uses encodes request with protobuf, builds and performs an http request, and uses response
-  /// decoder to parse body. Will parse error if response code is not 200.
+  /// Encodes request with protobuf, builds and performs an http request, and uses response
+  /// decoder to parse body. Will load error if response code is not 200.
   Future<ConnectResponse<T>> performRequest<RT extends GeneratedMessage, T>(
       String path, RT request, ResponseDecoder<T> decoder) async {
     final url = '$hostname$path';
@@ -58,7 +58,6 @@ class HttpConnectClient implements ConnectClient {
     final body = request.writeToBuffer();
     final headers = {
       'Content-Type': _protobufContentType,
-      'Content-Length': body.length.toString()
     };
 
     final response = await httpClient.post(uri, headers: headers, body: body);
